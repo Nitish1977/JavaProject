@@ -1,5 +1,4 @@
 # ContactBook WebApp
-# ContactBook WebApp
 
 A simple contact book web application built with Java, Spring Boot, HTML, and Tailwind CSS.
 
