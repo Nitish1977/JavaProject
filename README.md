@@ -1,4 +1,5 @@
 # ContactBook WebApp
+# ContactBook WebApp
 
 A simple contact book web application built with Java, Spring Boot, HTML, and Tailwind CSS.
 
@@ -29,4 +30,4 @@ A simple contact book web application built with Java, Spring Boot, HTML, and Ta
 - `src/main/resources/static` - Static assets (CSS)
 
 ## Notes
-- Contacts are stored in memory. Data will be lost on server restart.
+- Contacts are stored in memory. Data will be lost on server restart
