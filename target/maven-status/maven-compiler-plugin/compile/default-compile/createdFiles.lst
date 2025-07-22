@@ -1,0 +1,5 @@
+com\contactbook\controller\ContactController.class
+com\contactbook\model\Contact.class
+com\contactbook\controller\AuthController.class
+com\contactbook\ContactBookApplication.class
+com\contactbook\service\ContactService.class

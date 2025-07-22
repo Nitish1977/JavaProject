@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Contact | ContactBook</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .input-focus-effect:focus {
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+            border-color: #f59e0b;
+        }
+        .btn-transition {
+            transition: all 0.3s ease;
+        }
+        .btn-transition:hover {
+            transform: translateY(-2px);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto py-8 px-4">
+    <div class="max-w-2xl mx-auto animate__animated animate__fadeIn">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Add New Contact</h1>
+            <p class="text-gray-600">Fill in the details below to create a new contact</p>
+        </div>
+        
+        <form method="post" action="/add" class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+            <div class="mb-6 animate__animated animate__fadeInUp">
+                <label class="block text-gray-700 text-sm font-medium mb-2">Name</label>
+                <input type="text" name="name" 
+                       class="input-focus-effect w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-yellow-400 transition-colors duration-200"
+                       placeholder="John Doe" required>
+            </div>
+            
+            <div class="mb-6 animate__animated animate__fadeInUp animate__delay-1s">
+                <label class="block text-gray-700 text-sm font-medium mb-2">Email</label>
+                <input type="email" name="email" 
+                       class="input-focus-effect w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-yellow-400 transition-colors duration-200"
+                       placeholder="john@example.com" required>
+            </div>
+            
+            <div class="mb-8 animate__animated animate__fadeInUp animate__delay-2s">
+                <label class="block text-gray-700 text-sm font-medium mb-2">Phone</label>
+                <input type="text" name="phone" 
+                       class="input-focus-effect w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-yellow-400 transition-colors duration-200"
+                       placeholder="+1 (555) 123-4567" required>
+            </div>
+            
+            <div class="flex items-center justify-end space-x-4 animate__animated animate__fadeInUp animate__delay-3s">
+                <a href="/" class="btn-transition px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200">
+                    Cancel
+                </a>
+                <button type="submit" class="btn-transition px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white rounded-lg font-medium hover:from-yellow-500 hover:to-yellow-600">
+                    Add Contact
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Add ripple effect to buttons
+    document.querySelectorAll('button, a').forEach(button => {
+        button.addEventListener('click', function(e) {
+            let x = e.clientX - e.target.getBoundingClientRect().left;
+            let y = e.clientY - e.target.getBoundingClientRect().top;
+            
+            let ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add animation to form inputs when focused
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('animate__animated', 'animate__pulse');
+        });
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('animate__animated', 'animate__pulse');
+        });
+    });
+
+    // Form submission animation
+    document.querySelector('form').addEventListener('submit', function(e) {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.classList.add('animate__animated', 'animate__pulse');
+        setTimeout(() => {
+            submitBtn.classList.remove('animate__animated', 'animate__pulse');
+        }, 1000);
+    });
+</script>
+</body>
+</html>
