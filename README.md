@@ -16,12 +16,19 @@ A simple contact book web application built with Java, Spring Boot, HTML, and Ta
 - Tailwind CSS
 
 ## IMAGE
+
 ![ContactBook Home Page](https://github.com/Nitish1977/JavaProject/blob/main/img1.png)
+
 ![ContactBook Register Page](https://github.com/Nitish1977/JavaProject/blob/main/img2.png)
+
 ![ContactBook Login Page](https://github.com/Nitish1977/JavaProject/blob/main/img3.png)
+
 ![ContactBook AddNewContact Page](https://github.com/Nitish1977/JavaProject/blob/main/img5.png)
+
 ![ContactBook AddNewContact Page](https://github.com/Nitish1977/JavaProject/blob/main/img4.png)
+
 ![ContactBook AddNewContact Page](https://github.com/Nitish1977/JavaProject/blob/main/img6.png)
+
 ![ContactBook AddNewContact Page](https://github.com/Nitish1977/JavaProject/blob/main/img7.png)
 
 
