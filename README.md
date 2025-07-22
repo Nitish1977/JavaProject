@@ -15,6 +15,10 @@ A simple contact book web application built with Java, Spring Boot, HTML, and Ta
 - Thymeleaf
 - Tailwind CSS
 
+##IMAGE
+
+![ContactBook Home Page](https://github.com/Nitish1977/JavaProject/blob/main/img1.png)
+
 ## How to Run
 1. Ensure you have Java and Maven installed.
 2. Build and run the project using Maven:
